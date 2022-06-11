@@ -1,0 +1,64 @@
+
+int sort(vector<int> &rank, int n){
+    int i, j, a;
+    for (i = 0; i < n; i++) {
+            for (j = i + 1; j < n; j++){
+                if (rank[i] > rank[j]) 
+                {
+                    a =  rank[i];
+                    rank[i] = rank[j];
+                    rank[j] = a;
+                }
+            }
+        }
+}
+
+
+
+bool possibletime(vector<int> &rank, int m, int mid){
+    int Mcount=0;
+    for(int i=0;i<rank.size();i++){
+            int timesum=0;
+        for(int j=1;j<=m;j++){
+            timesum=timesum+(rank[i]*j);
+            if(timesum>mid){
+                break;
+            }
+            if(timesum==mid){
+            Mcount++;
+            if(Mcount==m){
+                return 1;
+            }
+            else{
+                break;
+            }
+            }
+            Mcount++;
+                        if(Mcount==m){
+                return 1;
+                        }
+        }
+    }
+    return 0;
+}
+int minCookTime(vector<int> &rank, int m)
+{
+    int s=0;
+    int n=rank.size();
+    sort(rank,n);   
+
+    int e=rank[0]*m*(m+1)/2;
+    int mid= s+(e-s)/2;
+    int ans=-1;
+    while(s<=e){
+        if(possibletime(rank , m, mid)){
+            ans=mid;
+            e=mid-1;
+        }
+        else{
+            s=mid+1;
+        }
+         mid= s+(e-s)/2;
+    }
+    return ans;
+}
