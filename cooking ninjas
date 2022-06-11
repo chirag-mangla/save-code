@@ -62,3 +62,68 @@ int minCookTime(vector<int> &rank, int m)
     }
     return ans;
 }
+another method
+
+/ Time Complexity: O(n^2 logn)
+
+#include<bits/stdc++.h>
+using namespace std;
+
+bool isPossible(vector<int> &rank, int n, int m, int mid) {
+    int prata = 0;
+    for(int i = 0; i < n; i++) {
+        int time = 0;
+        int j = 1;
+        while(time + j*rank[i] <= mid) {
+            time += j*rank[i];
+            j++;
+        }
+        j--;
+        prata += j;
+    }
+    if(prata >= m) return true;
+    return false;
+}
+
+int minCookTime(vector<int> &rank, int n, int m) {
+    int s = 0;
+    
+    sort(rank.begin(), rank.end());
+        
+    int e = (m*(m+1)/2) * rank[n-1];
+    
+    int mid = s + (e-s)/2;
+    int ans = -1;
+    while(s <= e) {
+        if(isPossible(rank, n, m, mid)) {
+            ans = mid;
+            e = mid - 1;
+        }
+        else {
+            s = mid + 1;
+        }
+        mid = s + (e-s)/2;
+    }
+    
+    return ans;
+}
+
+int main() {
+    int t;
+    cin>>t;
+
+    while(t--) {
+        vector<int> rank;
+        int n, m;
+        cin>>m>>n;
+
+        for(int i = 0; i < n; i++) {
+            int data;
+            cin>>data;
+            rank.push_back(data);
+        }
+
+        cout<<minCookTime(rank, n, m)<<endl;
+    }
+    return 0;
+}
