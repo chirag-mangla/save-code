@@ -1,0 +1,72 @@
+vector<int> findArraySum(vector<int>&a, int n, vector<int>&b, int m) {
+	// Write your code here.
+     vector<int> sum;
+    int i=n,j=m;
+    int k=0;
+    int carry=0;
+    while(i>0 && j>0){
+        
+        int digit=a[i-1]+b[j-1]+carry;
+        if(digit>9){
+            digit=digit%10;
+                    sum.push_back(digit);
+            carry=1;
+            k++;
+            i--;
+            j--;
+            }
+        else{
+                    sum.push_back(digit);
+            k++;
+            i--;
+            j--;
+            carry=0;
+            
+        }
+    }
+    while(i>0){
+        int digit=a[i-1]+carry;
+        if(digit>9){
+            digit=digit%10;
+                    sum.push_back(digit);
+            carry=1;
+            k++;
+            i--;
+            }
+        else{
+                    sum.push_back(digit);
+            k++;
+            i--;
+            carry=0;
+        }
+    }
+        while(j>0){
+        int digit=b[j-1]+carry;
+        if(digit>9){
+            digit=digit%10;
+                                sum.push_back(digit);
+
+            carry=1;
+            k++;
+            j--;
+            }
+        else{
+                    sum.push_back(digit);
+
+            carry=0;
+            k++;
+            j--;
+        }}
+    if(carry==1){
+        sum.push_back(1);
+        k++;
+    }
+    int s=0;
+    int e=k-1;
+    while(s<=e){
+        swap(sum[s],sum[e]);
+        s++;
+        e--;
+    }
+    return sum;
+}
