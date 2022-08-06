@@ -1,0 +1,31 @@
+class Solution {
+public:
+    void rotate(vector<vector<int>>& matrix) {
+        int n=matrix.size();
+        int dia=(n/2) + (n%2);
+        int dupn=n-1;
+        int rs=0,cs=0,re=n-1,ce=n-1;
+        
+        for(int i=0;i<dia;i++){
+            int j=0;
+            for(;j<dupn;j++){
+                int temp=matrix[rs-j][cs];
+                matrix[rs-j][cs]=matrix[re][cs-j];
+                matrix[re][cs-j]=matrix[re+j][ce]; 
+                matrix[re+j][ce]=matrix[rs][ce+j];
+                matrix[rs][ce+j]=temp;
+                rs++;
+                cs++;
+                re--;
+                ce--;
+                
+                
+            }
+            rs=i+1;
+            cs=i+1;
+            re=n-i-2;
+            ce=n-i-2;
+            dupn=dupn-2;
+        }
+    }
+};
