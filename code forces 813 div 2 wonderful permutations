@@ -1,0 +1,45 @@
+#include <iostream>
+#include<algorithm>
+#include <vector>
+using namespace std;
+
+int main()
+{
+    int t;
+    cin>>t;
+    while(t>0){
+        int n,k;
+        cin>>n>>k;
+        int v[n];
+		int num;
+        for(int i=0;i<n;i++){
+			cin>>v[i];
+        }
+		// for(int i=0;i<n;i++){
+        // cout<<s[i];
+		// }
+        int count=0;
+         int sub[k];
+		for(int i=0;i<k;i++){
+			sub[i]=v[i];
+		}
+      
+		int m = sizeof(sub)/sizeof(sub[0]);
+ 
+    sort(sub, sub + m);
+ 
+		
+        for(int i=0;i<k;i++){
+            if(sub[i]>k){
+               count++; 
+            }
+        }
+        cout<<count<<endl;
+        
+        
+        
+        t--;
+    }
+
+    return 0;
+}
