@@ -15,18 +15,14 @@ int main()
         for(int i=0;i<n;i++){
 			cin>>v[i];
         }
-		// for(int i=0;i<n;i++){
-        // cout<<s[i];
-		// }
+		
         int count=0;
          int sub[k];
 		for(int i=0;i<k;i++){
 			sub[i]=v[i];
 		}
       
-		int m = sizeof(sub)/sizeof(sub[0]);
- 
-    sort(sub, sub + m);
+	
  
 		
         for(int i=0;i<k;i++){
