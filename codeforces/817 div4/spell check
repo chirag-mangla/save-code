@@ -1,0 +1,55 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+ 
+bool check(string s[5],string og[5]){
+  
+}
+ 
+int main(){
+	// your code goes here
+   int t;
+   cin>>t;
+   while(t>0){
+      int n;
+      cin>>n;
+      string s;
+      for(int i=0;i<n;i++){
+        cin>>s[i];
+ 
+      }
+    // int xo='T'^'i'^'m'^'u'^'r';
+     string og="Turmi";
+     if(n==5){
+       for(int i=0;i<5;i++){
+         for(int j=1;j<5;j++){
+            if(s[i]>s[j]){
+           swap(s[i],s[j]);
+         }
+         }
+       }
+    
+      bool check=1;
+      
+      for(int k=0;k<5;k++){
+         if(s[k]!=og[k]){
+         check=0;
+      }}
+           
+      if(check){
+        cout<<"yes"<<endl;
+        
+      }
+      else{
+        cout<<"no"<<endl;
+      }
+       
+      }
+      else{
+         cout<<"no"<<endl;
+      }
+ 
+ 
+      t--;
+   } 
+}
