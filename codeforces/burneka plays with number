@@ -1,1 +1,39 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main(){
+   int t;
+   cin>>t;
+   while(t>0){
+   
+    float arr[4];
+    for(int i=0;i<4;i++){
+        cin>>arr[i];
+    }
+
+
+    float x=((arr[1]/arr[0])*(arr[2]/arr[3]));
+    float y=1/x;
+    int b=y;
+    int a=x;
+    cout<<x<<" "<<a<<" "<<y<<" "<<b<<endl;
+    if(a==x){
+      cout<<"a and x"<<endl;
+    }
+     if(b==y){
+      cout<<"b and y"<<endl;
+    }
+    if(x==1){
+        cout<<"0"<<endl;
+    }
+   if(a==x || b==y ){
+        cout<<"1"<<endl;
+    }
+    else{
+        cout<<"2"<<endl;
+    }
+        t--;
+   }
+}
 
